@@ -15,29 +15,61 @@ import javafx.event.ActionEvent;
 public class Calculator extends Application { 
    @Override 
    public void start(Stage stage) {      
-      //creating label email 
-      Text text1 = new Text("number1");       
-      
-      //creating label password 
-      Text text2 = new Text("number2"); 
+      Text text1 = new Text("number1");        
+      Text text2 = new Text("number2");
+      Text text3 = new Text("result"); 
        
-      //Creating Text Filed for email        
       TextField textField1 = new TextField();       
-      
-      //Creating Text Filed for password        
       TextField textField2 = new TextField();  
+      TextField textField3 = new TextField();  
        
       //Creating Buttons 
-      Button button1 = new Button("Submit"); 
-      Button button2 = new Button("Clear");  
+      Button button1 = new Button("Add"); 
+      Button button2 = new Button("Substract");  
+      Button button3 = new Button("Multiply");  
+      Button button4 = new Button("Divide");  
+      Button button5 = new Button("Close");  
       
       //Handle the calculate button
-      EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+      EventHandler<ActionEvent> addEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                System.out.println("System");
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText())+ Integer.parseInt(textField2.getText())))
             }
         };
+       button1.setOnAction(addEvent); 
+
+        EventHandler<ActionEvent> subEvent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText())- Integer.parseInt(textField2.getText())))
+            }
+        };
+       button2.setOnAction(subEvent); 
+
+       EventHandler<ActionEvent> mulEvent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText()) * Integer.parseInt(textField2.getText())))
+            }
+        };
+       button3.setOnAction(mulEvent); 
+
+
+       
+       EventHandler<ActionEvent> divEvent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText()) / Integer.parseInt(textField2.getText())))
+            }
+        };
+       button4.setOnAction(divEvent); 
+
+      button5.setOnAction((event)=>{
+         System.exit(0);
+      })
+       
+
       
       //Creating a Grid Pane 
       GridPane gridPane = new GridPane();    
@@ -60,22 +92,18 @@ public class Calculator extends Application {
       gridPane.add(textField1, 1, 0); 
       gridPane.add(text2, 0, 1);       
       gridPane.add(textField2, 1, 1); 
-      gridPane.add(button1, 0, 2); 
-      gridPane.add(button2, 1, 2); 
+      gridPane.add(text3, 0, 2);       
+      gridPane.add(textField3, 1, 2); 
+      gridPane.add(button1, 0, 3); 
+      gridPane.add(button2, 1, 3); 
+      gridPane.add(button3, 2, 3); 
+      gridPane.add(button4, 3, 3); 
+      gridPane.add(button5, 4, 3); 
        
-      //Styling nodes  
-      button1.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;"); 
-      button2.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;"); 
-       
-      text1.setStyle("-fx-font: normal bold 20px 'serif' "); 
-      text2.setStyle("-fx-font: normal bold 20px 'serif' ");  
-      gridPane.setStyle("-fx-background-color: BEIGE;"); 
        
       //Creating a scene object 
       Scene scene = new Scene(gridPane); 
        
-      //Setting title to the Stage 
-      stage.setTitle("CSS Example"); 
          
       //Adding scene to the stage 
       stage.setScene(scene);
