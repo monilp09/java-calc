@@ -34,7 +34,7 @@ public class Calculator extends Application {
       EventHandler<ActionEvent> addEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText())+ Integer.parseInt(textField2.getText())))
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText())+ Integer.parseInt(textField2.getText())));
             }
         };
        button1.setOnAction(addEvent); 
@@ -42,7 +42,7 @@ public class Calculator extends Application {
         EventHandler<ActionEvent> subEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText())- Integer.parseInt(textField2.getText())))
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText())- Integer.parseInt(textField2.getText())));
             }
         };
        button2.setOnAction(subEvent); 
@@ -50,7 +50,7 @@ public class Calculator extends Application {
        EventHandler<ActionEvent> mulEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText()) * Integer.parseInt(textField2.getText())))
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText()) * Integer.parseInt(textField2.getText())));
             }
         };
        button3.setOnAction(mulEvent); 
@@ -60,14 +60,14 @@ public class Calculator extends Application {
        EventHandler<ActionEvent> divEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText()) / Integer.parseInt(textField2.getText())))
+                textField3.setText(Integer.toString(Integer.parseInt(textField1.getText()) / Integer.parseInt(textField2.getText())));
             }
         };
        button4.setOnAction(divEvent); 
 
-      button5.setOnAction((event)=>{
+      button5.setOnAction((event)->{
          System.exit(0);
-      })
+      });
        
 
       
